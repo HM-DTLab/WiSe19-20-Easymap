@@ -23,6 +23,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Navigator.pop(context);
                 Navigator.pushNamed(context, '/addcontact');
               },
+            ),
+            ListTile(
+              title: Text("Login"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/login');
+              },
             )
           ],
         ),
