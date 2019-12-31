@@ -14,7 +14,6 @@ class User(db.Model):
 
 class Routes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), nullable=False)
     Address = db.Column(db.String(512), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
