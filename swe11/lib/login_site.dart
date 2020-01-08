@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -30,12 +33,10 @@ class _LoginPageState extends State<LoginPage> {
             key: _formKey,
             child: Column(
               children: <Widget>[
-                SizedBox(height: 20.0),
                 Text(
                   'Login Information',
                   style: TextStyle(fontSize: 20),
                 ),
-                SizedBox(height: 20.0),
                 TextFormField(
                     onSaved: (value) => _email = value,
                     keyboardType: TextInputType.emailAddress,
@@ -53,6 +54,11 @@ class _LoginPageState extends State<LoginPage> {
                       // Validate will return true if is valid, or false if invalid.
                       if (form.validate()) {
                         print("$_email $_password");
+                        print("object");
+                       
+                        // _makeGetRequest();
+                        _makePostRequest('{"email":"$_email", "password":"$_password"}');
+                        
                       }
                     }),
               ],
@@ -61,5 +67,19 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+  _makeGetRequest() async {
+    var response =  await http.get('http://10.0.2.2:5000/about');
+    print(response.body);
+                        
+  }
+
+  _makePostRequest(json) async {
+    
+    Map<String, String> headers = {"Content-type": "application/json"};
+    // String json = '{"title": "Hello", "body": "body text", "userId": 1}';
+    var response = await http.post('http://10.0.2.2:5000/login', headers: headers, body: json);
+
+    print(response.body);
   }
 }
