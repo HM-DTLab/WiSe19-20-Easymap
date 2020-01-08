@@ -24,13 +24,7 @@ class _FloatingButtonsState extends State<FloatingButtons> {
                   child: Text("Routen"),
                   color: Colors.grey,
                   onPressed: () {
-                    showBottomSheet(
-                      context: context,
-                      builder: (context) => Container(
-                        color: Colors.white,
-                        height: 300,
-                      ),
-                    );
+                    Navigator.pushNamed(context, '/routepage');
                   },
                 ),
               ),
@@ -42,7 +36,9 @@ class _FloatingButtonsState extends State<FloatingButtons> {
                 child: RaisedButton(
                   child: Text("NOTFALL"),
                   color: Colors.red,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/emergency');
+                  },
                 ),
               ),
             ),

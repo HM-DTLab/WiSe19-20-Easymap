@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'custom_drawer.dart';
-import 'floatin_buttons.dart';
+import 'floating_buttons.dart';
 import 'maps.dart';
 
 class Home extends StatefulWidget {

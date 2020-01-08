@@ -1,19 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AddContact extends StatefulWidget {
-  AddContact({Key key}) : super(key: key);
+class AddRoute extends StatefulWidget {
+  AddRoute({Key key}) : super(key: key);
 
   @override
-  _AddContactState createState() => _AddContactState();
+  _AddRouteState createState() => _AddRouteState();
 }
 
-class _AddContactState extends State<AddContact> {
+class _AddRouteState extends State<AddRoute> {
   final _formKey = GlobalKey<FormState>();
-  String _name;
-  String _surename;
-  String _tel;
-  String _adress;
+  String _routeName;
+  String _startAdress;
+  String _endAdress;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class _AddContactState extends State<AddContact> {
           icon: new Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text("New Contact"),
+        title: Text("New Route"),
         backgroundColor: Colors.green,
       ),
       body: Container(
@@ -34,23 +33,18 @@ class _AddContactState extends State<AddContact> {
             children: <Widget>[
               SizedBox(height: 20.0),
               TextFormField(
-                  onSaved: (value) => _name = value,
+                  onSaved: (value) => _routeName = value,
                   keyboardType: TextInputType.text,
-                  decoration: InputDecoration(labelText: "Name")),
+                  decoration: InputDecoration(labelText: "Name of the Route")),
               TextFormField(
-                  onSaved: (value) => _surename = value,
+                  onSaved: (value) => _startAdress = value,
                   keyboardType: TextInputType.text,
-                  decoration: InputDecoration(labelText: "Surename")),
+                  decoration: InputDecoration(labelText: "Start Adress")),
               SizedBox(height: 20.0),
               TextFormField(
-                  onSaved: (value) => _tel = value,
-                  keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(labelText: "Telefone number")),
-              SizedBox(height: 20.0),
-              TextFormField(
-                  onSaved: (value) => _adress = value,
+                  onSaved: (value) => _endAdress = value,
                   keyboardType: TextInputType.text,
-                  decoration: InputDecoration(labelText: "Adress")),
+                  decoration: InputDecoration(labelText: "End Adress")),
               SizedBox(height: 20.0),
               RaisedButton(
                   child: Text("Add Contact"),
@@ -59,7 +53,7 @@ class _AddContactState extends State<AddContact> {
                     form.save();
                     // Validate will return true if is valid, or false if invalid.
                     if (form.validate()) {
-                      print("$_name $_surename $_tel $_adress");
+                      print("$_routeName $_startAdress $_endAdress");
                     }
                   }),
             ],
