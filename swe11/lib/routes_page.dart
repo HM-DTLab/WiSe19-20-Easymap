@@ -20,23 +20,22 @@ class _RoutesPageState extends State<RoutesPage> {
         backgroundColor: Colors.green,
       ),
       body: Container(
-        child: ListView(
-          children: <Widget>[
-            ListTile(
-              title: Text("Example Route 1"),
-            ),
-            ListTile(
-              title: Text("Example Route 2"),
-            ),
-            ListTile(
-              title: Text("Example Route 3"),
-            ),
-            ListTile(
-              title: Text("Example Route 4"),
-            )
-          ],
-        ),
+        child: returnListTiles(),
       ),
     );
   }
+}
+
+returnListTiles() {
+  List<Widget> listArray = [];
+  int i;
+  for (i = 0; i <= 10; i++) {
+    listArray.add(new ListTile(title: Text(i.toString()),));
+  }
+  return ListView(
+    children: <Widget>[
+      for (int j= 0; j < i; j++) 
+      listArray.elementAt(j)
+    ],
+  );
 }
