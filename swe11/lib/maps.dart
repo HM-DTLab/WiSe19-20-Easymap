@@ -25,7 +25,7 @@ geolocator.getPositionStream(LocationOptions(
         accuracy: LocationAccuracy.best, timeInterval: 1000))
     .listen((position) {
 	circles?.clear();
-	circles?.add(Circle(center: LatLng(position.latitude, position.longitude), radius: 4000,));
+	circles?.add(Circle(circleId: CircleId("1"), center: LatLng(position.latitude, position.longitude), radius: 4000,));
       mapController?.moveCamera(
         CameraUpdate.newCameraPosition(
           CameraPosition(target: LatLng(position.latitude, position.longitude,
