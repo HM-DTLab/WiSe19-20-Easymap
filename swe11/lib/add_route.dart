@@ -31,7 +31,6 @@ class _AddRouteState extends State<AddRoute> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20.0),
               TextFormField(
                   onSaved: (value) => _routeName = value,
                   keyboardType: TextInputType.text,
@@ -40,12 +39,10 @@ class _AddRouteState extends State<AddRoute> {
                   onSaved: (value) => _startAdress = value,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(labelText: "Start Adress")),
-              SizedBox(height: 20.0),
               TextFormField(
                   onSaved: (value) => _endAdress = value,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(labelText: "End Adress")),
-              SizedBox(height: 20.0),
               RaisedButton(
                   child: Text("Add Contact"),
                   onPressed: () {

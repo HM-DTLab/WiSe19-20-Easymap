@@ -32,7 +32,6 @@ class _AddContactState extends State<AddContact> {
           key: _formKey,
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20.0),
               TextFormField(
                   onSaved: (value) => _name = value,
                   keyboardType: TextInputType.text,
@@ -41,17 +40,14 @@ class _AddContactState extends State<AddContact> {
                   onSaved: (value) => _surename = value,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(labelText: "Surename")),
-              SizedBox(height: 20.0),
               TextFormField(
                   onSaved: (value) => _tel = value,
                   keyboardType: TextInputType.phone,
-                  decoration: InputDecoration(labelText: "Telefone number")),
-              SizedBox(height: 20.0),
+                  decoration: InputDecoration(labelText: "Telephone Number")),
               TextFormField(
                   onSaved: (value) => _adress = value,
                   keyboardType: TextInputType.text,
-                  decoration: InputDecoration(labelText: "Adress")),
-              SizedBox(height: 20.0),
+                  decoration: InputDecoration(labelText: "Address")),
               RaisedButton(
                   child: Text("Add Contact"),
                   onPressed: () {
