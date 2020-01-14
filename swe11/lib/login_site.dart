@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'globals.dart' as globals;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -53,8 +54,7 @@ class _LoginPageState extends State<LoginPage> {
                       form.save();
                       // Validate will return true if is valid, or false if invalid.
                       if (form.validate()) {
-                        print("$_email $_password");
-                        print("object");
+
                        
                         // _makeGetRequest();
                         _makePostRequest('{"email":"$_email", "password":"$_password"}');
@@ -74,12 +74,14 @@ class _LoginPageState extends State<LoginPage> {
                         
   }
 
-  _makePostRequest(json) async {
+  _makePostRequest(jsons) async {
     
     Map<String, String> headers = {"Content-type": "application/json"};
-    // String json = '{"title": "Hello", "body": "body text", "userId": 1}';
-    var response = await http.post('http://10.0.2.2:5000/login', headers: headers, body: json);
-
-    print(response.body);
+    var response = await http.post('http://10.0.2.2:5000/login', headers: headers, body: jsons);
+    String b =response.body;
+    globals.token = json.decode(b)['token'];
+    globals.token = json.decode(b)['username'];
+    print(b);
+    
   }
 }

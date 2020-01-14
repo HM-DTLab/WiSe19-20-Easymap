@@ -14,8 +14,10 @@ class User(db.Model):
 
 class Routes(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    Address = db.Column(db.String(512), nullable=False)
+    end_lat = db.Column(db.Float(), nullable=False)
+    end_lon = db.Column(db.Float(), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     def __repr__(self):
-        return f'Route {self.id}: ({self.title}, {self.Address})'
+        return f'Route {self.id}: ({self.user_id}, end_lat: {self.end_lat}, end_lon: {self.end_lon})'
+

@@ -18,9 +18,22 @@ def login():
 
     user = models.User.query.filter_by(email=r["email"]).first()
     if user and user.password == r["password"]:
-        return jsonify(username=user.username, token=hashlib.sha256(bytes(user.username+user.password+salt, "utf-8")).hexdigest())
+        return {"username": user.username, "token": hashlib.sha256(bytes(user.username+user.password+salt, "utf-8")).hexdigest()}
 
     return "invalid Email or Password"
+
+
+@app.route('/routes', methods=['POST', 'GET'])
+def routes():
+    r = request.get_json()
+    user = models.User.query.filter_by(username=r["username"]).first()
+    print(user)
+    print(user.routes)
+    #if user and hashlib.sha256(bytes(user.username+user.password+salt)).hexdigest() == r["token"]:
+        #return jsonify(routes=user.routes)
+        #pass
+    print({"routes": [{"id": i.id, "lat": i.end_lat, "lon": i.end_lon} for i in user.routes]})
+    return {"routes": [{"id": i.id, "lat": i.end_lat, "lon": i.end_lon} for i in user.routes]}
 
 
 if __name__ == '__main__':
