@@ -20,7 +20,7 @@ Die Idee ist eine App die alle unnötig komplexen Funktionen weg lässt und gut 
 
 ##  Beschreibung der Lösung (Screenshots)
 Wenn die App geöffnet wird, erscheint eine Karte mit dem aktuellen Standort:
-HIER BILD
+![alt text](https://gitlab.lrz.de/swe1ws20192020/g2/blob/master/images/home.jpg "cncs")
 Über die Sidebar kann man sich einloggen, neue Routen und Notfall-Kontakte hinzufügen:
 HIER BILD
 Ist man eingeloggt, kan man auf der Hauptseite die gespeicherten Routen auswählen:
