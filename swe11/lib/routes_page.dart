@@ -14,7 +14,7 @@ class RoutesPage extends StatefulWidget {
 class _RoutesPageState extends State<RoutesPage> {
   @override
   Widget build(BuildContext context) {
-    _makePostRequest('{"username":"admin", "token":"1234"}');
+
     return Scaffold(
       appBar: AppBar(
         leading: new IconButton(
@@ -35,12 +35,29 @@ class _RoutesPageState extends State<RoutesPage> {
     Map<String, String> headers = {"Content-type": "application/json"};
     var response = await http.post('http://10.0.2.2:5000/routes', headers: headers, body: jsons);
     List<Widget> listArray = [];
+    if (response.statusCode == 200){
     var j = (json.decode(response.body)["routes"]);
     j.forEach((element)=>listArray.add(new ListTile(
               title: Text("Route " + element["id"].toString()))));
-
+    }
     return listArray;
   }
+
+  returnListTiles(BuildContext context) {
+
+  _makePostRequest('{"username":"admin", "token":"1234"}').then((value){
+
+  });
+        return ListView(
+    children: <Widget>[
+      ListTile(title: Text("Route 1", textAlign: TextAlign.center, style: TextStyle(fontSize: 35))),
+      ListTile(title: Text("Route 2",textAlign: TextAlign.center, style: TextStyle(fontSize: 35)))
+    ],
+  );
+ 
+  
+
+}
 }
 
 
@@ -62,16 +79,4 @@ class Routes {
 
 }
 
-returnListTiles(BuildContext context) {
-  List<Widget> listArray = [];
-  int i;
-  for (i = 0; i <= 10; i++) {
-    listArray.add(new ListTile(title: Text(i.toString()),onTap: () => Navigator.pop(context),));
-  }
-  return ListView(
-    children: <Widget>[
-      for (int j= 0; j < i; j++) 
-      listArray.elementAt(j)
-    ],
-  );
-}
+
