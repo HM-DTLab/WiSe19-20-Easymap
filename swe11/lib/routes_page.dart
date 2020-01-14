@@ -20,17 +20,17 @@ class _RoutesPageState extends State<RoutesPage> {
         backgroundColor: Colors.green,
       ),
       body: Container(
-        child: returnListTiles(),
+        child: returnListTiles(context),
       ),
     );
   }
 }
 
-returnListTiles() {
+returnListTiles(BuildContext context) {
   List<Widget> listArray = [];
   int i;
   for (i = 0; i <= 10; i++) {
-    listArray.add(new ListTile(title: Text(i.toString()),));
+    listArray.add(new ListTile(title: Text(i.toString()),onTap: () => Navigator.pop(context),));
   }
   return ListView(
     children: <Widget>[
