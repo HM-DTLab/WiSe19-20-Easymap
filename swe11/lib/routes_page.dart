@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'globals.dart' as globals;
+
 
 class RoutesPage extends StatefulWidget {
   RoutesPage({Key key}) : super(key: key);
@@ -10,6 +14,7 @@ class RoutesPage extends StatefulWidget {
 class _RoutesPageState extends State<RoutesPage> {
   @override
   Widget build(BuildContext context) {
+    _makePostRequest('{"username":"admin", "token":"1234"}');
     return Scaffold(
       appBar: AppBar(
         leading: new IconButton(
@@ -24,6 +29,37 @@ class _RoutesPageState extends State<RoutesPage> {
       ),
     );
   }
+
+    _makePostRequest(jsons) async {
+    
+    Map<String, String> headers = {"Content-type": "application/json"};
+    var response = await http.post('http://10.0.2.2:5000/routes', headers: headers, body: jsons);
+    List<Widget> listArray = [];
+    var j = (json.decode(response.body)["routes"]);
+    j.forEach((element)=>listArray.add(new ListTile(
+              title: Text("Route " + element["id"].toString()))));
+
+    return listArray;
+  }
+}
+
+
+
+class Routes {
+  int id;
+  double lat;
+  double lon;
+
+  
+
+  Routes(int id, double lat, double lon){
+    this.id = id;
+    this.lat = lat;
+    this.lon = lon;
+  }
+
+
+
 }
 
 returnListTiles(BuildContext context) {
