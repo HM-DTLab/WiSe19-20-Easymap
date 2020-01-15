@@ -16,7 +16,9 @@ Selbst wenn ein Alzheimer Patient noch körperlich fit ist, fällt es ihm oft sc
 Herkömmliche Kartenapps scheinen hierfür eine Lösung zu sein, sie sind allerdings viel zu umfangreich und dadurch komplex. Außerdem ist es schierig für Verwandte bei der Einrichtung dieser App zu helfen, wenn diese weiter weg leben.
 
 ## Beschreibung der Idee
-Die Idee ist eine App die alle unnötig komplexen Funktionen weg lässt und gut aus der Fehrne konfigurierbar ist. Sollte eine Situation den Patienten dennoch überforden kann er über einen Notfallknopf Hilfe anfordern.
+Die Idee ist eine App die alle unnötig komplexen Funktionen weg lässt und gut aus der Ferne konfigurierbar ist. Sollte eine Situation den Patienten dennoch überforden kann er über einen Notfallknopf Hilfe anfordern.
+Kernfunktion der App ist, dass bei der Routenfindung die Präferenz auf bekannten Strecken liegt und versucht wird bei einer Navigation von A nach B möglichst bekannte Streckenabschnitte zu wählen.
+Durch einen Informationsknopf können zuvor hinterlegte Informationen zu Routen abgerufen werden.
 
 ##  Beschreibung der Lösung
 Wenn die App geöffnet wird, erscheint eine Karte mit dem aktuellen Standort:
